@@ -34,6 +34,12 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 dir = new Vector2(x,y);
 
+        //faster falling
+        if(body.velocity.y < 0f)
+        {
+            body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+        }
+
         Walk(dir);
 
         if(CastSelf(Vector2.down, groundCastDistance))
@@ -50,11 +56,7 @@ public class PlayerMovement : MonoBehaviour
         if(groundedBuffer > 0f && jumpBuffer > 0f)
         {
             Jump();
-        }
-
-        if(body.velocity.y < 0f)
-        {
-            body.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+            jumpBuffer = 0f;
         }
 
         if(jumpBuffer > 0f) jumpBuffer -= Time.deltaTime;
