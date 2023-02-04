@@ -12,9 +12,12 @@ public class ProjectileSpawner : MonoBehaviour
 
     float spawnTimer;
 
+    private Collider2D myCollider;
+
     void Start()
     {
         spawnTimer = spawnCooldown;
+        myCollider = GetComponent<Collider2D>();
     }
 
     void Update()
@@ -36,6 +39,8 @@ public class ProjectileSpawner : MonoBehaviour
 
         proj.speed = projectileSpeed;
         proj.direction = projectileDirection;
+
+        Physics2D.IgnoreCollision(myCollider, proj.GetCollider2D());
     }
 
 
