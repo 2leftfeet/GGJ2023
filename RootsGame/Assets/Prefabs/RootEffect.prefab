@@ -74,8 +74,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   colorGradient:
     serializedVersion: 2
-    key0: {r: 0.07126711, g: 0.0754717, b: 0.012459949, a: 1}
-    key1: {r: 0.26729387, g: 0.41099998, b: 0.17796297, a: 1}
+    key0: {r: 0.07150613, g: 0.07450981, b: 0.026450982, a: 1}
+    key1: {r: 0.13120833, g: 0.18431373, b: 0.0993451, a: 1}
     key2: {r: 0, g: 0, b: 0, a: 0}
     key3: {r: 0, g: 0, b: 0, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}

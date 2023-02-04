@@ -151,7 +151,7 @@ public class RootEffect : MonoBehaviour
 
         lr.startColor = lr.endColor = colorGradient.Evaluate(Random.Range(0f, 1f));
 
-        lr.sortingOrder = 10;
+        lr.sortingOrder = -10;
         lr.material = mat;
 
 
