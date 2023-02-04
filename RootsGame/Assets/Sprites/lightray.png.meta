@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6c7295be72599364ca6ea5df842a95cb
+guid: 382bad48ea279bb429c8beeb602e1fd6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,91 +105,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: cursors-8_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1024
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 752d19972fba0d6449f08de74507b580
-      internalID: -2135814199
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cursors-8_1
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b91583d8f70ec064ca32548d2932635d
-      internalID: 1220211726
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cursors-8_2
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 581547fb51abb8743ac04f3b545f1954
-      internalID: 1266657406
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cursors-8_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 1024
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7cd88d4899cd7e3429667c8dd7b84ffa
-      internalID: -292758635
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -200,11 +116,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      cursors-8_3: -292758635
-      cursors-8_1: 1220211726
-      cursors-8_0: -2135814199
-      cursors-8_2: 1266657406
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
