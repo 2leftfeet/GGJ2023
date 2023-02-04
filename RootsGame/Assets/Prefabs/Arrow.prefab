@@ -251,6 +251,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMask:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 832
   speed: 5
   direction: {x: -1, y: 0}
