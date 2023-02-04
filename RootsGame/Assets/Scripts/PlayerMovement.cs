@@ -17,14 +17,17 @@ public class PlayerMovement : MonoBehaviour
 
     private Collider2D collider2D;
     private Rigidbody2D body;
-    private float groundedBuffer = 0;
+    private PlayerAnimation playerAnim;
 
+    private float groundedBuffer = 0;
     private float jumpBuffer = 0f;
+    private bool isJumping = false;
 
     void Start()
     {
         collider2D = GetComponent<Collider2D>();
         body = GetComponent<Rigidbody2D>();
+        playerAnim = GetComponent<PlayerAnimation>();
     }
 
     void Update()
@@ -71,12 +74,21 @@ public class PlayerMovement : MonoBehaviour
     void Jump()
     {
         body.velocity = new Vector2(body.velocity.x, jumpForce);
+
+        isJumping = true;
+        playerAnim.JumpTrigger();
     }
 
     bool CastSelf(Vector3 direction, float distance)
     {
         RaycastHit2D hit;
-        hit = Physics2D.BoxCast(transform.position, collider2D.bounds.size, 0f, direction, distance, groundMask);
+        hit = Physics2D.BoxCast(transform.position + (Vector3)collider2D.offset, collider2D.bounds.size, 0f, direction, distance, groundMask);
+
+        if(isJumping && hit && body.velocity.y <= 0f)
+        {
+            isJumping = false;
+            playerAnim.LandTrigger();
+        }
 
         return hit;
     }
