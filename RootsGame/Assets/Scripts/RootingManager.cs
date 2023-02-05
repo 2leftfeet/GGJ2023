@@ -17,22 +17,38 @@ public class RootingManager : MonoBehaviour
             if(hitCollider)
             {
 
-                IRootable rootable = hitCollider.GetComponentInParent<IRootable>();
+                Rootable rootable = hitCollider.GetComponentInParent<Rootable>();
 
                 if(rootable != null && !rootable.IsRooted())
                 {
                     RootEffects(rootable);
                     rootable.RootInPlace();
-                    //Do effects
+                }
+            }
+        }
+
+        if(Input.GetMouseButtonDown(1))
+        {
+            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Collider2D hitCollider = Physics2D.OverlapPoint(mouseWorldPos, mouseHitboxLayer);
+
+            if(hitCollider)
+            {
+                Rootable rootable = hitCollider.GetComponentInParent<Rootable>();
+
+                if(rootable != null && rootable.IsRooted())
+                {
+                    rootable.Unroot();
                 }
             }
         }
     }
 
-    void RootEffects(IRootable rootable)
+    void RootEffects(Rootable rootable)
     {
         RootEffect root = Instantiate(rootEffectPrefab, transform.position, Quaternion.identity);
 
         root.target = rootable.GetCollider2D();
+        rootable.rootEffect = root;
     }
 }

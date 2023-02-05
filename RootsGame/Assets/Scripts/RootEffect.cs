@@ -25,6 +25,7 @@ public class RootEffect : MonoBehaviour
 
     List<LineRenderer> lineRenderers;
 
+    public bool unrooting = false;
 
     void Start()
     {
@@ -55,7 +56,7 @@ public class RootEffect : MonoBehaviour
                 AnimationCurve curve = line.widthCurve;
                 Keyframe[] keys = curve.keys;
 
-                keys[1].time = rootSpreadAmount;
+                keys[1].time = unrooting ? 1-rootSpreadAmount : rootSpreadAmount;
                 curve.keys = keys;
 
                 line.widthCurve = curve;
@@ -154,9 +155,14 @@ public class RootEffect : MonoBehaviour
         lr.sortingOrder = -10;
         lr.material = mat;
 
-
-
-
         return lr;
+    }
+
+    public void ResetEffect()
+    {
+        unrooting = true;
+        rootSpreadAmount = 0f;
+
+        Destroy(this.gameObject, 1f / rootSpeed);
     }
 }

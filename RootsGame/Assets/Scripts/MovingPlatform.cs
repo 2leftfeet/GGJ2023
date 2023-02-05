@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatform : Rootable
 {
     private Rigidbody2D body;
 
@@ -14,6 +14,7 @@ public class MovingPlatform : MonoBehaviour
     private bool goingToB = true;
 
     private Vector3 targetPos;
+    private bool isRooted = false;
 
 
     void Start()
@@ -33,6 +34,32 @@ public class MovingPlatform : MonoBehaviour
 
             body.velocity = (targetPos - transform.position).normalized * speed;
         }
+    }
+
+    public override void RootInPlace()
+    {
+        isRooted = true;
+        body.velocity = Vector2.zero;
+    }
+
+    public override Collider2D GetCollider2D()
+    {
+        return GetComponent<Collider2D>();
+    }
+
+    public override bool IsRooted()
+    {
+        return isRooted;
+    }
+
+    public override void Unroot()
+    {
+        body.velocity = (targetPos - transform.position).normalized * speed;
+        isRooted = false;
+
+        if(rootEffect)
+            rootEffect.ResetEffect();
+        
     }
 
 }

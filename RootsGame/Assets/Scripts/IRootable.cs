@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IRootable
+public abstract class Rootable : MonoBehaviour
 {
-   void RootInPlace();
-   Collider2D GetCollider2D();
-   bool IsRooted();
+    public RootEffect rootEffect;
+
+    public abstract void RootInPlace();
+    public abstract Collider2D GetCollider2D();
+    public abstract bool IsRooted();
+    public abstract void Unroot();
 }

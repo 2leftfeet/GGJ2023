@@ -40,6 +40,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7310801578297306138}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -63,7 +64,8 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -74,7 +76,6 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 2.2052293, y: 5.26261}
   m_EdgeRadius: 0
 --- !u!1 &7480320891573369804
@@ -154,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1031166972, guid: 32f0f3ada0fb0174dac80f8c026af90f, type: 3}
+  m_Sprite: {fileID: 4945422945493482283, guid: 83d72b1efc7a1b9448d62f954eab075e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -173,6 +174,7 @@ BoxCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7480320891573369804}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -196,18 +198,18 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.894, y: 0.994}
+    oldSize: {x: 3.882, y: 0.848}
     newSize: {x: 4.096, y: 4.096}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
   m_Size: {x: 3.2497253, y: 0.35828614}
   m_EdgeRadius: 0
 --- !u!50 &4457468436591315129
@@ -249,8 +251,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cb73cf4ce5f1a04a9f4db1d81d62ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootEffect: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 832
   speed: 5
   direction: {x: -1, y: 0}
+  gibs: {fileID: 4214258538485584206, guid: 3d463cfaefe342248bec0477392f6571, type: 3}

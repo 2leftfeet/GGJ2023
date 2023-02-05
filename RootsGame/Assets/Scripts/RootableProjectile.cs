@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RootableProjectile : MonoBehaviour, IRootable
+public class RootableProjectile : Rootable
 {
     public LayerMask groundMask;
     public float speed = 10f;
@@ -8,6 +8,8 @@ public class RootableProjectile : MonoBehaviour, IRootable
     
     private Rigidbody2D body;
     private bool isRooted;
+
+    public GameObject gibs;
     
     private void Start()
     {
@@ -23,11 +25,15 @@ public class RootableProjectile : MonoBehaviour, IRootable
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerStay2D(Collider2D other)
     {
         if( (groundMask & (1 << other.gameObject.layer)) != 0)
         {
             Debug.Log("hit ground");
+            if(gibs)
+            {
+                Instantiate(gibs, transform.position, transform.rotation);
+            }
             Destroy(this.gameObject);
         }
         
@@ -40,7 +46,7 @@ public class RootableProjectile : MonoBehaviour, IRootable
     }
 
     [ContextMenu("Root In Place")]
-    public void RootInPlace()
+    public override void RootInPlace()
     {
         isRooted = true;
         GetComponent<Collider2D>().isTrigger = false;
@@ -48,13 +54,24 @@ public class RootableProjectile : MonoBehaviour, IRootable
         gameObject.layer = 8;
     }
 
-    public Collider2D GetCollider2D()
+    public override Collider2D GetCollider2D()
     {
         return GetComponent<Collider2D>();
     }
 
-    public bool IsRooted()
+    public override bool IsRooted()
     {
         return isRooted;
+    }
+
+    public override void Unroot()
+    {
+        isRooted = false;
+        GetCollider2D().isTrigger = true;
+
+        gameObject.layer = 0;
+
+        if(rootEffect)
+            rootEffect.ResetEffect();
     }
 }

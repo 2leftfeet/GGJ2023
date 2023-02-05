@@ -15,7 +15,7 @@ TagManager:
   - MouseHitbox
   - RootedGround
   - MovingPlatform
-  - 
+  - IgnoreEverything
   - 
   - 
   - 
