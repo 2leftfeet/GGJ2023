@@ -19,9 +19,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D body;
     private PlayerAnimation playerAnim;
 
-    private float groundedBuffer = 0;
+    public bool isGrounded;
     private float jumpBuffer = 0f;
-    private bool isJumping = false;
+    public bool isJumping = false;
+
+    public Rigidbody2D movingPlatform;
+
+    private float movingPlatformIgnoreTime = 0.1f;
+    private float ignoreTimer = -1f;
 
     void Start()
     {
@@ -45,9 +50,14 @@ public class PlayerMovement : MonoBehaviour
 
         Walk(dir);
 
-        if(CastSelf(Vector2.down, groundCastDistance))
+        if(ignoreTimer < 0f && CastSelf(Vector2.down, groundCastDistance))
         {
-            groundedBuffer = coyoteTime;
+            isGrounded = true;
+            if(isJumping)
+            {
+                isJumping = false;
+                playerAnim.LandTrigger();
+            }
         }
         //On space set jump buffer
         if(Input.GetKeyDown(KeyCode.Space))
@@ -56,14 +66,20 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //If coyote time still ticking down and if jump buffer still ticking down, jump.
-        if(groundedBuffer > 0f && jumpBuffer > 0f)
+        if(isGrounded && jumpBuffer > 0f)
         {
             Jump();
             jumpBuffer = 0f;
         }
 
         if(jumpBuffer > 0f) jumpBuffer -= Time.deltaTime;
-        if(groundedBuffer > 0f) groundedBuffer -= Time.deltaTime;
+
+        if(ignoreTimer > 0f) ignoreTimer -= Time.deltaTime;
+
+        if(ignoreTimer < 0f && movingPlatform)
+        {
+            body.velocity = new Vector2(body.velocity.x + movingPlatform.velocity.x, movingPlatform.velocity.y);
+        }
     }
 
     void Walk(Vector2 dir)
@@ -73,8 +89,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
+        Debug.Log("Jumped");
+        movingPlatform = null;
+
         body.velocity = new Vector2(body.velocity.x, jumpForce);
 
+        ignoreTimer = movingPlatformIgnoreTime;
+
+        isGrounded = false;
         isJumping = true;
         playerAnim.JumpTrigger();
     }
@@ -84,10 +106,13 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit2D hit;
         hit = Physics2D.BoxCast(transform.position + (Vector3)collider2D.offset, collider2D.bounds.size, 0f, direction, distance, groundMask);
 
-        if(isJumping && hit && body.velocity.y <= 0f)
+        if(hit && hit.collider.GetComponent<MovingPlatform>())
         {
-            isJumping = false;
-            playerAnim.LandTrigger();
+            movingPlatform = hit.collider.GetComponent<Rigidbody2D>();   
+        }
+        else
+        {
+            movingPlatform = null;
         }
 
         return hit;
