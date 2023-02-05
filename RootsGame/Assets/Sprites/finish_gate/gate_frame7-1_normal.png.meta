@@ -1,7 +1,10 @@
 fileFormatVersion: 2
-guid: 83d72b1efc7a1b9448d62f954eab075e
+guid: 8f108232c0664594bb60c3bba0fed1d8
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -790277733329418643
+    second: gate_frame7-1_normal_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -91,80 +94,26 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: turret-8_0
+      name: gate_frame7-1_normal_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2048
-        width: 2048
-        height: 2048
+        x: 193
+        y: 471
+        width: 1552
+        height: 1106
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ad4a75d757fb1e243a0e22d9aef1a315
-      internalID: 753583826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: turret-8_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2048
-        height: 2048
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6234f0321bf610540a6472e979624df8
-      internalID: -1936040640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: turret-8_2
-      rect:
-        serializedVersion: 2
-        x: 2204
-        y: 3294
-        width: 1807
-        height: 460
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a337d311f943284098973ab9442de77
-      internalID: 2100236152
+      spriteID: d66cffea69e5805f0800000000000000
+      internalID: -790277733329418643
       vertices: []
       indices: 
       edges: []
@@ -172,17 +121,14 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      turret-8_2: 2100236152
-      turret-8_1: -1936040640
-      turret-8_0: 753583826
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
